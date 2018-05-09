@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ajuniofc.com.br.controledecontastelas">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:label="Login"
+            android:theme="@style/AppCompat.TelaCheia">
+        </activity>
+        <activity android:name=".ui.activity.HomeActivity" />
+        <activity
+            android:name=".ui.activity.SplashScreenActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.AdicionarCardenetaActivity"
+            android:label="Adicionar Cardeneta"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.ContasActivity"
+            android:label="Contas" />
+        <activity
+            android:name=".ui.activity.CompartilharActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.ContaActivity"
+            android:label="Energia" />
+        <activity android:name=".ui.activity.OnBoardActivity"
+            android:theme="@style/AppCompat.TelaCheia">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
