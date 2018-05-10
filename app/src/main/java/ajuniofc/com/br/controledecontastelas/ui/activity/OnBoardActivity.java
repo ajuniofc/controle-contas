@@ -10,15 +10,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.ramotion.paperonboarding.PaperOnboardingFragment;
-import com.ramotion.paperonboarding.PaperOnboardingPage;
-import com.ramotion.paperonboarding.listeners.PaperOnboardingOnLeftOutListener;
-import com.ramotion.paperonboarding.listeners.PaperOnboardingOnRightOutListener;
-
 import java.util.ArrayList;
 
 import ajuniofc.com.br.controledecontastelas.R;
-import ajuniofc.com.br.controledecontastelas.ui.fragment.OnBoardFragment;
+import ajuniofc.com.br.controledecontastelas.onboard.engine.PaperOnboardingFragment;
+import ajuniofc.com.br.controledecontastelas.onboard.engine.PaperOnboardingPage;
+import ajuniofc.com.br.controledecontastelas.onboard.listeners.PaperOnboardingOnLeftOutListener;
 
 public class OnBoardActivity extends AppCompatActivity {
 
@@ -37,15 +34,6 @@ public class OnBoardActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, onBoardingFragment);
         fragmentTransaction.commit();
-
-        onBoardingFragment.setOnRightOutListener(new PaperOnboardingOnRightOutListener() {
-            @Override
-            public void onRightOut() {
-                go.setVisibility(View.VISIBLE);
-//                startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
-//                finish();
-            }
-        });
 
         onBoardingFragment.setOnLeftOutListener(new PaperOnboardingOnLeftOutListener() {
             @Override
