@@ -32,6 +32,7 @@ public class OnBoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
+                finish();
             }
         }));
 
