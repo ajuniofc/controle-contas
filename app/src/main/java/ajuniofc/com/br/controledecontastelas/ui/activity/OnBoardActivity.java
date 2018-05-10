@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import ajuniofc.com.br.controledecontastelas.R;
+import ajuniofc.com.br.controledecontastelas.onboard.engine.OnBoardingButton;
 import ajuniofc.com.br.controledecontastelas.onboard.engine.PaperOnboardingFragment;
 import ajuniofc.com.br.controledecontastelas.onboard.engine.PaperOnboardingPage;
 import ajuniofc.com.br.controledecontastelas.onboard.listeners.PaperOnboardingOnLeftOutListener;
@@ -20,16 +21,19 @@ import ajuniofc.com.br.controledecontastelas.onboard.listeners.PaperOnboardingOn
 public class OnBoardActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
-    private TextView go;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_on_board);
-        go = findViewById(R.id.idGo);
         fragmentManager = getSupportFragmentManager();
 
-        final PaperOnboardingFragment onBoardingFragment = PaperOnboardingFragment.newInstance(getDataForOnboarding());
+        final PaperOnboardingFragment onBoardingFragment = PaperOnboardingFragment.newInstance(getDataForOnboarding(), new OnBoardingButton("Go!", new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
+            }
+        }));
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, onBoardingFragment);
@@ -38,7 +42,6 @@ public class OnBoardActivity extends AppCompatActivity {
         onBoardingFragment.setOnLeftOutListener(new PaperOnboardingOnLeftOutListener() {
             @Override
             public void onLeftOut() {
-                go.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -57,10 +60,5 @@ public class OnBoardActivity extends AppCompatActivity {
         elements.add(scr2);
         elements.add(scr3);
         return elements;
-    }
-
-    public void next(View view) {
-        startActivity(new Intent(OnBoardActivity.this, LoginActivity.class));
-        finish();
     }
 }

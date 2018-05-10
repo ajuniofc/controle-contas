@@ -21,6 +21,9 @@ import ajuniofc.com.br.controledecontastelas.onboard.listeners.PaperOnboardingOn
 public class PaperOnboardingFragment extends Fragment {
 
     private static final String ELEMENTS_PARAM = "elements";
+    private static OnBoardingButton mOnBoardingButton;
+    private static String mTitle;
+    private static View.OnClickListener mListener;
 
     private PaperOnboardingOnChangeListener mOnChangeListener;
     private PaperOnboardingOnRightOutListener mOnRightOutListener;
@@ -28,7 +31,8 @@ public class PaperOnboardingFragment extends Fragment {
     private ArrayList<PaperOnboardingPage> mElements;
 
 
-    public static PaperOnboardingFragment newInstance(ArrayList<PaperOnboardingPage> elements) {
+    public static PaperOnboardingFragment newInstance(ArrayList<PaperOnboardingPage> elements, OnBoardingButton onBoardingButton) {
+        mOnBoardingButton = onBoardingButton;
         PaperOnboardingFragment fragment = new PaperOnboardingFragment();
         Bundle args = new Bundle();
         args.putSerializable(ELEMENTS_PARAM, elements);
@@ -50,7 +54,7 @@ public class PaperOnboardingFragment extends Fragment {
         View view = inflater.inflate(R.layout.onboarding_main_layout, container, false);
 
         // create engine for onboarding element
-        PaperOnboardingEngine mPaperOnboardingEngine = new PaperOnboardingEngine(view.findViewById(R.id.onboardingRootView), mElements, getActivity().getApplicationContext());
+        PaperOnboardingEngine mPaperOnboardingEngine = new PaperOnboardingEngine(view.findViewById(R.id.onboardingRootView), mElements, mOnBoardingButton,getActivity().getApplicationContext());
         // set listeners
         mPaperOnboardingEngine.setOnChangeListener(mOnChangeListener);
         mPaperOnboardingEngine.setOnLeftOutListener(mOnLeftOutListener);

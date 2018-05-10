@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,6 +46,7 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
     private final FrameLayout mContentIconContainer;
     private final FrameLayout mBackgroundContainer;
     private final LinearLayout mPagerIconsContainer;
+    private final Button mButton;
 
     private final RelativeLayout mContentRootLayout;
     private final LinearLayout mContentCenteredContainer;
@@ -65,15 +68,17 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
     private PaperOnboardingOnChangeListener mOnChangeListener;
     private PaperOnboardingOnRightOutListener mOnRightOutListener;
     private PaperOnboardingOnLeftOutListener mOnLeftOutListener;
+    private OnBoardingButton mOnBoardingButton;
 
     /**
      * Main constructor for create a Paper Onboarding Engine
-     *
-     * @param rootLayout      root paper onboarding layout element
+     *  @param rootLayout      root paper onboarding layout element
      * @param contentElements ordered list of prepared content elements for onboarding
+     * @param mOnBoardingButton
      * @param appContext      application context
      */
-    public PaperOnboardingEngine(View rootLayout, ArrayList<PaperOnboardingPage> contentElements, Context appContext) {
+    public PaperOnboardingEngine(View rootLayout, ArrayList<PaperOnboardingPage> contentElements, OnBoardingButton mOnBoardingButton, Context appContext) {
+        this.mOnBoardingButton = mOnBoardingButton;
         if (contentElements == null || contentElements.isEmpty())
             throw new IllegalArgumentException("No content elements provided");
 
@@ -85,6 +90,8 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
         mContentIconContainer = (FrameLayout) rootLayout.findViewById(R.id.onboardingContentIconContainer);
         mBackgroundContainer = (FrameLayout) rootLayout.findViewById(R.id.onboardingBackgroundContainer);
         mPagerIconsContainer = (LinearLayout) rootLayout.findViewById(R.id.onboardingPagerIconsContainer);
+        mButton  = (Button) rootLayout.findViewById(R.id.onboardingButton);
+        
 
         mContentRootLayout = (RelativeLayout) mRootLayout.getChildAt(1);
         mContentCenteredContainer = (LinearLayout) mContentRootLayout.getChildAt(0);
@@ -185,6 +192,9 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
         mContentIconContainer.addView(initContentIcon);
         // initial bg color
         mRootLayout.setBackgroundColor(activeElement.getBgColor());
+
+        mButton.setText(mOnBoardingButton.getTitle());
+        mButton.setOnClickListener(mOnBoardingButton.getListener());
     }
 
     /**
@@ -193,7 +203,6 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
     protected void toggleContent(boolean prev) {
         int oldElementIndex = mActiveElementIndex;
         PaperOnboardingPage newElement = prev ? toggleToPreviousElement() : toggleToNextElement();
-
         if (newElement == null) {
             if (prev && mOnLeftOutListener != null)
                 mOnLeftOutListener.onLeftOut();
@@ -238,6 +247,12 @@ public class PaperOnboardingEngine implements PaperOnboardingEngineDefaults {
 
         if (mOnChangeListener != null)
             mOnChangeListener.onPageChanged(oldElementIndex, mActiveElementIndex);
+
+        if (prev == false && oldElementIndex >= mElements.size() -2){
+            mButton.setVisibility(View.VISIBLE);
+        }else {
+            mButton.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void setOnChangeListener(PaperOnboardingOnChangeListener onChangeListener) {
