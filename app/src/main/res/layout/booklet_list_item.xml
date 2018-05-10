@@ -8,7 +8,6 @@
     android:layout_margin="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:maxHeight="250dp"
-
     app:cardCornerRadius="8dp">
 
     <LinearLayout
@@ -19,7 +18,7 @@
         android:layout_marginTop="8dp">
 
         <TextView
-            android:id="@+id/task_item_title"
+            android:id="@+id/booklet_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -30,33 +29,10 @@
             android:textColor="@color/cinzaEscuro"
             android:background="@color/cinzaClaro"/>
 
-        <TextView
-            android:id="@+id/task_item_conta1"
-            android:text="Conta"
-            android:layout_marginLeft="8dp"
+        <ListView
+            android:id="@+id/booklet_item_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/cinzaEscuro"/>
-
-        <TextView
-            android:id="@+id/task_item_conta2"
-            android:text="Conta"
-            android:layout_marginLeft="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@color/cinzaEscuro"/>
-
-        <TextView
-            android:id="@+id/task_item_conta3"
-            android:text="Conta"
-            android:layout_marginLeft="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/cinzaEscuro"/>
+            android:layout_height="200dp"/>
 
     </LinearLayout>
 
