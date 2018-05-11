@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -53,12 +54,12 @@ public class BookletListAdapter extends RecyclerView.Adapter<BookletListAdapter.
     class BookletViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView title;
-        private final ListView listView;
+        private final LinearLayout list;
 
         public BookletViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.booklet_item_title);
-            listView = itemView.findViewById(R.id.booklet_item_list);
+            list = itemView.findViewById(R.id.booklet_item_list);
         }
 
         public void bind(Booklet booklet){
@@ -67,8 +68,13 @@ public class BookletListAdapter extends RecyclerView.Adapter<BookletListAdapter.
             }else {
                 title.setText(booklet.getTitle());
             }
-            listView.setAdapter(new ArrayAdapter<Bill>(activity,
-                    android.R.layout.simple_list_item_1, booklet.getBills()));
+            for (Bill bill : booklet.getBills()) {
+                TextView view = new TextView(activity);
+                view.setText(bill.getName());
+                view.setTextSize(18);
+                view.setTextColor(activity.getResources().getColor(R.color.cinzaEscuro));
+                list.addView(view);
+            }
         }
     }
 }

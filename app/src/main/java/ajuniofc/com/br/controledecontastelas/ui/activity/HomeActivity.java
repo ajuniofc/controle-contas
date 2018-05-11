@@ -86,8 +86,6 @@ public class HomeActivity extends AppCompatActivity {
                 new Programming(true, BillType.FIXED, 0), 457.97, false));
         bills.add(new MonthlyDebt("Pós", "Mensalidade da pos", Calendar.getInstance(),
                 new Programming(true, BillType.FIXED, 0), 538.65, false));
-        bills.add(new MonthlyDebt("CEB", "Mensalidade da academia", Calendar.getInstance(),
-                new Programming(true, BillType.FIXED, 0), 89.90, true));
         return bills;
     }
 
@@ -95,6 +93,8 @@ public class HomeActivity extends AppCompatActivity {
         List<Bill> bills = new ArrayList<>();
         bills.add(new CurrentDebt("Camisa do inter", "Camisa de treino do inter", Calendar.getInstance(),149.99));
         bills.add(new CurrentDebt("Amigo", "Dinheiro pego emprestado com Fulano", 65.00));
+        bills.add(new MonthlyDebt("Academia", "Mensalidade da academia", Calendar.getInstance(),
+                new Programming(true, BillType.FIXED, 0), 89.90, true));
         return bills;
     }
 
@@ -102,9 +102,5 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.form_task_menu, menu);
         return super.onCreateOptionsMenu(menu);
-    }
-
-    public void contas(View view) {
-
     }
 }
