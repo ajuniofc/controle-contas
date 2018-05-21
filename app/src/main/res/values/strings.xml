@@ -3,4 +3,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="recuperar_senha_descricao">Olá! Para criarmos sua nova senha, é preciso verificarmos a autenticidade com a conta. Escolha como deseja receber o código de segurança</string>
+    <string name="codigo_seguranca_descricao">Insira o código de segurança. Ao encerrar o tempo, um novo código será necessário</string>
+    <string name="codigo_expirado">Código expirado! Selecione uma das opções para continuar a recuperação de senha</string>
+    <string name="cadastro_nome">Olá! Vamos começar o seu cadastro mas primeiro, gostariamos de saber como você gostaria de ser chamado</string>
+    <string name="cadastro_email" >Ótimo! Estamo quase lá! \n Agora, precisamos saber qual o seu e-mail</string>
+    <string name="cadastro_password" >Beleza! Agora só falta sua senha de acesso</string>
 </resources>

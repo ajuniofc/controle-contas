@@ -39,6 +39,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.recuperarsenha.RecuperarSenhaActivity"
+            android:theme="@style/AppCompat.TelaCheia"/>
+        <activity android:name=".ui.activity.recuperarsenha.CodigoSegurancaActivity"
+            android:theme="@style/AppCompat.TelaCheia"/>
+        <activity android:name=".ui.activity.recuperarsenha.NovaSenhaActivity"
+            android:theme="@style/AppCompat.TelaCheia"/>
+        <activity android:name=".ui.activity.singup.SingUpActivity"
+            android:theme="@style/AppCompat.TelaCheia"/>
+        <activity android:name=".ui.activity.singup.CadastroEmailActivity"
+            android:theme="@style/AppCompat.TelaCheia"/>
+        <activity android:name=".ui.activity.singup.CadastroPasswordActivity"
+            android:theme="@style/AppCompat.TelaCheia"/>
     </application>
 
 </manifest>

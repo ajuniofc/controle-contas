@@ -14,15 +14,67 @@
         android:layout_centerVertical="true"
         android:id="@+id/linearLayout">
 
+        <LinearLayout
+            android:id="@+id/login_erro_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_action_alert_blue"
+                android:layout_marginRight="8dp"
+                />
+
+            <TextView
+                android:text="Usuário inválido!"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
         <EditText
+            android:id="@+id/login_usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail"
+            android:inputType="textPersonName"
             android:layout_marginBottom="10dp"/>
 
-        <EditText
+        <LinearLayout
+            android:id="@+id/login_erro_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:visibility="invisible">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_action_alert_blue"
+                android:layout_marginRight="8dp"
+                />
+
+            <TextView
+                android:text="Senha inválida!"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/login_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="Senha"
             android:layout_marginBottom="10dp"/>
 
@@ -34,7 +86,8 @@
                 android:text="Esqueceu sua senha?"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:onClick="goToRecuperarSenha"/>
 
             <TextView
                 android:text="Cadastre-se"
@@ -42,7 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="right"
-                android:gravity="right"/>
+                android:gravity="right"
+                android:onClick="goToSingUp"/>
 
         </LinearLayout>
 
@@ -56,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/shape_button_text"
         />
 
     <ImageView
