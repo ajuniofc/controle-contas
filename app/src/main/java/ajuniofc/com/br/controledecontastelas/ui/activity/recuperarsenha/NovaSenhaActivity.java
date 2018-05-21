@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import ajuniofc.com.br.controledecontastelas.R;
-import ajuniofc.com.br.controledecontastelas.ui.activity.HomeActivity;
+import ajuniofc.com.br.controledecontastelas.ui.activity.home.HomeActivity;
 
 public class NovaSenhaActivity extends AppCompatActivity {
     private EditText novaSenha;

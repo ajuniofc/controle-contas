@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.LoginActivity"
+            android:name=".ui.activity.login.LoginActivity"
             android:label="Login"
-            android:theme="@style/AppCompat.NoActionBar">
+            android:theme="@style/AppCompat.NoActionBar"></activity>
+        <activity android:name=".ui.activity.home.HomeActivity" >
         </activity>
-        <activity android:name=".ui.activity.HomeActivity" />
         <activity
-            android:name=".ui.activity.SplashScreenActivity"
+            android:name=".ui.activity.splash.SplashScreenActivity"
             android:theme="@style/AppCompat.TelaCheia" />
         <activity
             android:name=".ui.activity.AdicionarCardenetaActivity"
@@ -31,7 +31,8 @@
         <activity
             android:name=".ui.activity.ContaActivity"
             android:label="Energia" />
-        <activity android:name=".ui.activity.OnBoardActivity"
+        <activity
+            android:name=".ui.activity.onboard.OnBoardActivity"
             android:theme="@style/AppCompat.TelaCheia">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,18 +40,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.recuperarsenha.RecuperarSenhaActivity"
-            android:theme="@style/AppCompat.TelaCheia"/>
-        <activity android:name=".ui.activity.recuperarsenha.CodigoSegurancaActivity"
-            android:theme="@style/AppCompat.TelaCheia"/>
-        <activity android:name=".ui.activity.recuperarsenha.NovaSenhaActivity"
-            android:theme="@style/AppCompat.TelaCheia"/>
-        <activity android:name=".ui.activity.singup.SingUpActivity"
-            android:theme="@style/AppCompat.TelaCheia"/>
-        <activity android:name=".ui.activity.singup.CadastroEmailActivity"
-            android:theme="@style/AppCompat.TelaCheia"/>
-        <activity android:name=".ui.activity.singup.CadastroPasswordActivity"
-            android:theme="@style/AppCompat.TelaCheia"/>
+        <activity
+            android:name=".ui.activity.recuperarsenha.RecuperarSenhaActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.recuperarsenha.CodigoSegurancaActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.recuperarsenha.NovaSenhaActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.singup.SingUpActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.singup.CadastroEmailActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.singup.CadastroPasswordActivity"
+            android:theme="@style/AppCompat.TelaCheia" />
+        <activity android:name=".ui.activity.configuracao.ConfiguracaoActivity"
+            android:theme="@style/AppCompat.TelaCheia"
+            android:label="Configurações"></activity>
     </application>
 
 </manifest>

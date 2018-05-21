@@ -1,14 +1,12 @@
-package ajuniofc.com.br.controledecontastelas.ui.activity;
+package ajuniofc.com.br.controledecontastelas.ui.activity.onboard;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,6 +15,7 @@ import ajuniofc.com.br.controledecontastelas.onboard.engine.OnBoardingButton;
 import ajuniofc.com.br.controledecontastelas.onboard.engine.PaperOnboardingFragment;
 import ajuniofc.com.br.controledecontastelas.onboard.engine.PaperOnboardingPage;
 import ajuniofc.com.br.controledecontastelas.onboard.listeners.PaperOnboardingOnLeftOutListener;
+import ajuniofc.com.br.controledecontastelas.ui.activity.login.LoginActivity;
 
 public class OnBoardActivity extends AppCompatActivity {
 

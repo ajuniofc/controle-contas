@@ -1,4 +1,4 @@
-package ajuniofc.com.br.controledecontastelas.ui.activity;
+package ajuniofc.com.br.controledecontastelas.ui.activity.home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,6 +22,8 @@ import ajuniofc.com.br.controledecontastelas.model.CurrentDebt;
 import ajuniofc.com.br.controledecontastelas.model.MonthlyDebt;
 import ajuniofc.com.br.controledecontastelas.model.BookletType;
 import ajuniofc.com.br.controledecontastelas.model.Programming;
+import ajuniofc.com.br.controledecontastelas.ui.activity.AdicionarCardenetaActivity;
+import ajuniofc.com.br.controledecontastelas.ui.activity.configuracao.ConfiguracaoActivity;
 import ajuniofc.com.br.controledecontastelas.ui.adapter.BookletListAdapter;
 
 public class HomeActivity extends AppCompatActivity {
@@ -100,7 +103,13 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.form_task_menu, menu);
+        getMenuInflater().inflate(R.menu.home_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        startActivity(new Intent(this, ConfiguracaoActivity.class));
+        return super.onOptionsItemSelected(item);
     }
 }

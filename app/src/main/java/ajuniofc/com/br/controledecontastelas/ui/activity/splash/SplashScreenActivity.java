@@ -1,4 +1,4 @@
-package ajuniofc.com.br.controledecontastelas.ui.activity;
+package ajuniofc.com.br.controledecontastelas.ui.activity.splash;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import ajuniofc.com.br.controledecontastelas.R;
+import ajuniofc.com.br.controledecontastelas.ui.activity.home.HomeActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
     private RelativeLayout layout;

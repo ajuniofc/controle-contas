@@ -1,8 +1,6 @@
-package ajuniofc.com.br.controledecontastelas.ui.activity;
+package ajuniofc.com.br.controledecontastelas.ui.activity.login;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +9,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import ajuniofc.com.br.controledecontastelas.R;
+import ajuniofc.com.br.controledecontastelas.ui.activity.splash.SplashScreenActivity;
 import ajuniofc.com.br.controledecontastelas.ui.activity.recuperarsenha.RecuperarSenhaActivity;
 import ajuniofc.com.br.controledecontastelas.ui.activity.singup.SingUpActivity;
 

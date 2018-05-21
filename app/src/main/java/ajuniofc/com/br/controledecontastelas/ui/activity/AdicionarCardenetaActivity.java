@@ -17,5 +17,6 @@ public class AdicionarCardenetaActivity extends AppCompatActivity {
 
     public void next(View view) {
         startActivity(new Intent(this, CompartilharActivity.class));
+        finish();
     }
 }

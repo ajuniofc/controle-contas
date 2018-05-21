@@ -17,5 +17,6 @@ public class CompartilharActivity extends AppCompatActivity {
 
     public void next(View view) {
         startActivity(new Intent(this, ContasActivity.class));
+        finish();
     }
 }

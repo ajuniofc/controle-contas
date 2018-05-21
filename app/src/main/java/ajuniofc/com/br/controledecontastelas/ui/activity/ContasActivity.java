@@ -19,7 +19,7 @@ public class ContasActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.conta_menu, menu);
+        getMenuInflater().inflate(R.menu.configuracao_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
