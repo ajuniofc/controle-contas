@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_conta_voltar"
+        android:title="OK"
+        android:icon="@drawable/check"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_conta_finalizar"
+        android:title="Finalizar"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menu_conta_pagar"
+        android:title="Pagar"
+        app:showAsAction="never"/>
+
+</menu>

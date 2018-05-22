@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.singup.SingUpActivity"
+    tools:context=".ui.activity.adicionarbooklet.BookletMensalActivity"
     android:background="@color/colorAccent">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_gravity="center"/>
 
         <TextView
-            android:text="@string/singup_titulo"
+            android:text="Criando Caderneta"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
@@ -29,7 +29,6 @@
             android:layout_gravity="center"
             android:textColor="@color/branca"/>
     </LinearLayout>
-
 
     <LinearLayout
         android:onClick="finishView"
@@ -51,38 +50,13 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cadastro_nome"
+            android:text="@string/cadastro_caderneta_mensal"
             android:textSize="18sp"
             android:textColor="@color/branca"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cadastro_erro_nome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="16dp"
-        android:visibility="invisible">
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/ic_action_alert"
-            android:layout_marginRight="8dp"
-            />
-
-        <TextView
-            android:text="Nome inválido!"
-            android:textColor="@color/branca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-
-    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:orientation="horizontal"
@@ -90,31 +64,26 @@
         android:layout_alignParentRight="true"
         android:background="@color/branca">
 
-        <EditText
-            android:id="@+id/cadastro_nome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:hint="Insira um nome"
-            android:layout_weight="4"
-            android:inputType="textPersonName"
+        <TextView
+            android:text="NÃO"
             android:textColor="@color/colorAccent"
-            android:textColorHint="@color/colorAccent"
-            android:background="@android:color/transparent"
-            android:layout_centerVertical="true"/>
-
-        <Button
-            android:id="@+id/cadastro_nome_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_centerVertical="true"
-            android:background="@drawable/oval_button_ok"
-            android:visibility="visible"
-            />
+            android:onClick="onGoToCompartilhar"/>
 
-    </RelativeLayout>
+        <TextView
+            android:text="SIM"
+            android:textColor="@color/colorAccent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="onGoToCompartilhar"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

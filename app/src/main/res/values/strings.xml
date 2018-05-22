@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Controle De Contas</string>
+    <string name="app_name">Nossas Contas</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -10,4 +10,13 @@
     <string name="cadastro_nome">Olá! Vamos começar o seu cadastro mas primeiro, gostariamos de saber como você gostaria de ser chamado</string>
     <string name="cadastro_email">Ótimo! Estamo quase lá! \n Agora, precisamos saber qual o seu e-mail</string>
     <string name="cadastro_password">Beleza! Agora só falta sua senha de acesso</string>
+    <string name="cadastro_caderneta_nome">Antes de mais nada, precisamos que você escolha um nome para sua caderneta de contas</string>
+    <string name="cadastro_caderneta_mensal">Legal! Para continuarmos, precisamos saber se a sua caderneta de contas irá se repetir nos próximos meses</string>
+    <string name="cadastro_caderneta_compartilhar">Gostaria de compartilhar sua caderneta para que outros possam te ajudar a controlar as contas.\n</string>
+    <string name="singup_titulo">Cadastre-se</string>
+    <string name="add_bill_titulo">Adicionar conta</string>
+    <string name="cadastro_bill_nome">Antes de mais nada, precisamos que você escolha um nome para sua conta</string>
+    <string name="cadastro_bill_valor">Ótimo! Agora que já temos o nome, precisamos de um valor para a conta</string>
+    <string name="cadastro_bill_vencimento">Quase lá! Caso sua conta tenha uma data de vencimento, informe ela</string>
+    <string name="cadastro_bill_mensal">Legal! Estamos no úlitmo passo. \nPrecisamos saber se a sua conta irá se repetir nos próximos meses</string>
 </resources>

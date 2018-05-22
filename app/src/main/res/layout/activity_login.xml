@@ -120,7 +120,7 @@
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
-        app:srcCompat="@drawable/icone" />
+        app:srcCompat="@drawable/conta" />
 
 
 </RelativeLayout>

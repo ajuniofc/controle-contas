@@ -33,6 +33,7 @@ public class BookletListAdapter extends RecyclerView.Adapter<BookletListAdapter.
             @Override
             public void onClick(View view) {
                 activity.startActivity(new Intent(activity, ContasActivity.class));
+                activity.finish();
             }
         });
         return new BookletViewHolder(view);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.singup.SingUpActivity"
+    tools:context=".ui.activity.bill.ValorBIllActivity"
     android:background="@color/colorAccent">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_gravity="center"/>
 
         <TextView
-            android:text="@string/singup_titulo"
+            android:text="@string/add_bill_titulo"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_width="wrap_content"
@@ -48,17 +48,16 @@
             android:layout_marginRight="4dp"/>
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cadastro_nome"
+            android:text="@string/cadastro_bill_valor"
             android:textSize="18sp"
             android:textColor="@color/branca"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cadastro_erro_nome"
+        android:id="@+id/bill_erro_valor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
@@ -74,7 +73,7 @@
             />
 
         <TextView
-            android:text="Nome inválido!"
+            android:text="Valor inválido!"
             android:textColor="@color/branca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,13 +90,12 @@
         android:background="@color/branca">
 
         <EditText
-            android:id="@+id/cadastro_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:hint="Insira um nome"
+            android:hint="Insira o valor da conta"
             android:layout_weight="4"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
             android:background="@android:color/transparent"
@@ -113,6 +111,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/oval_button_ok"
             android:visibility="visible"
+            android:onClick="addValor"
             />
 
     </RelativeLayout>

@@ -12,28 +12,11 @@
         <activity
             android:name=".ui.activity.login.LoginActivity"
             android:label="Login"
-            android:theme="@style/AppCompat.NoActionBar"></activity>
-        <activity android:name=".ui.activity.home.HomeActivity" >
-        </activity>
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity android:name=".ui.activity.home.HomeActivity" />
         <activity
             android:name=".ui.activity.splash.SplashScreenActivity"
-            android:theme="@style/AppCompat.TelaCheia" />
-        <activity
-            android:name=".ui.activity.AdicionarCardenetaActivity"
-            android:label="Adicionar Cardeneta"
-            android:theme="@style/AppCompat.NoActionBar" />
-        <activity
-            android:name=".ui.activity.ContasActivity"
-            android:label="Contas" />
-        <activity
-            android:name=".ui.activity.CompartilharActivity"
-            android:theme="@style/AppCompat.NoActionBar" />
-        <activity
-            android:name=".ui.activity.ContaActivity"
-            android:label="Energia" />
-        <activity
-            android:name=".ui.activity.onboard.OnBoardActivity"
-            android:theme="@style/AppCompat.TelaCheia">
+            android:theme="@style/AppCompat.TelaCheia" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,26 +24,59 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.recuperarsenha.RecuperarSenhaActivity"
+            android:name=".ui.activity.adicionarbooklet.AdicionarCardenetaActivity"
+            android:label="Adicionar Cardeneta"
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity
+            android:name=".ui.activity.ContasActivity"
+            android:label="Casa" />
+        <activity
+            android:name=".ui.activity.adicionarbooklet.CompartilharActivity"
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity
+            android:name=".ui.activity.ContaActivity"
+            android:label="Energia" />
+        <activity
+            android:name=".ui.activity.onboard.OnBoardActivity"
             android:theme="@style/AppCompat.TelaCheia" />
+        <activity
+            android:name=".ui.activity.recuperarsenha.RecuperarSenhaActivity"
+            android:theme="@style/AppCompat.NoActionBar" />
         <activity
             android:name=".ui.activity.recuperarsenha.CodigoSegurancaActivity"
-            android:theme="@style/AppCompat.TelaCheia" />
+            android:theme="@style/AppCompat.NoActionBar" />
         <activity
             android:name=".ui.activity.recuperarsenha.NovaSenhaActivity"
-            android:theme="@style/AppCompat.TelaCheia" />
+            android:theme="@style/AppCompat.NoActionBar" />
         <activity
             android:name=".ui.activity.singup.SingUpActivity"
-            android:theme="@style/AppCompat.TelaCheia" />
+            android:theme="@style/AppCompat.NoActionBar" />
         <activity
             android:name=".ui.activity.singup.CadastroEmailActivity"
-            android:theme="@style/AppCompat.TelaCheia" />
+            android:theme="@style/AppCompat.NoActionBar" />
         <activity
             android:name=".ui.activity.singup.CadastroPasswordActivity"
-            android:theme="@style/AppCompat.TelaCheia" />
-        <activity android:name=".ui.activity.configuracao.ConfiguracaoActivity"
-            android:theme="@style/AppCompat.TelaCheia"
-            android:label="Configurações"></activity>
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity
+            android:name=".ui.activity.configuracao.ConfiguracaoActivity"
+            android:label="Configurações"
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity
+            android:name=".ui.activity.adicionarbooklet.BookletMensalActivity"
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity
+            android:name=".ui.activity.bill.AdicionarBillActivity"
+            android:theme="@style/AppCompat.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".ui.activity.bill.ValorBIllActivity"
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity
+            android:name=".ui.activity.bill.VencimentoBillActivity"
+            android:theme="@style/AppCompat.NoActionBar" />
+        <activity android:name=".ui.activity.bill.BillMensalActivity"
+            android:theme="@style/AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,22 +25,40 @@ import ajuniofc.com.br.controledecontastelas.model.CurrentDebt;
 import ajuniofc.com.br.controledecontastelas.model.MonthlyDebt;
 import ajuniofc.com.br.controledecontastelas.model.BookletType;
 import ajuniofc.com.br.controledecontastelas.model.Programming;
-import ajuniofc.com.br.controledecontastelas.ui.activity.AdicionarCardenetaActivity;
+import ajuniofc.com.br.controledecontastelas.ui.activity.adicionarbooklet.AdicionarCardenetaActivity;
 import ajuniofc.com.br.controledecontastelas.ui.activity.configuracao.ConfiguracaoActivity;
 import ajuniofc.com.br.controledecontastelas.ui.adapter.BookletListAdapter;
 
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private Button addButton;
+    private List<Booklet> list = new ArrayList<>();
+    private LinearLayout semContaLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        semContaLayout = findViewById(R.id.home_sem_contas_adicionadas);
         setupRecyclerView();
         setupAddButton();
         configRecyclerView();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hasBookletAdded();
+        setAdapter();
+    }
+
+    private void hasBookletAdded() {
+        Booklet booklet = EventBus.getDefault().getStickyEvent(Booklet.class);
+        if (booklet != null){
+            list.add(booklet);
+        }
+    }
+
     private void setupRecyclerView() {
         recyclerView = findViewById(R.id.task_list);
     }
@@ -48,57 +69,22 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, AdicionarCardenetaActivity.class));
+                finish();
             }
         });
     }
 
     private void configRecyclerView() {
-        setAdapter();
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
     }
 
     private void setAdapter() {
-        recyclerView.setAdapter(new BookletListAdapter(list(), this));
-    }
-
-    private List<Booklet> list() {
-        List<Booklet> list = new ArrayList<>();
-        list.add(new Booklet( "Pessoais",  "Gastos pessoais",  Calendar.getInstance(), BookletType.SPARSE, getOwnerBills()));
-        list.add(new Booklet( "Casa",  "Todas as contas de casa",  Calendar.getInstance(), BookletType.FIXED, getHomeBills()));
-        list.add(new Booklet( "Confraternização",  "Valores a serem gastos na confraternização da empresa.",  Calendar.getInstance(), BookletType.SPARSE, getWorkBills()));
-        return list;
-    }
-
-    private List<Bill> getWorkBills() {
-        List<Bill> bills = new ArrayList<>();
-        bills.add(new CurrentDebt("Local", "Chacara a ser alugada", 459.90));
-        bills.add(new CurrentDebt("Refri", "Um engradado", 65.00));
-        bills.add(new CurrentDebt("Cerveja", "Dois engradados", 80.00));
-        bills.add(new CurrentDebt("Suco", "10 caixas de suco", 32.89));
-        bills.add(new CurrentDebt("Carne", "Carnes para churrasco", 289.90));
-        return bills;
-    }
-
-    private List<Bill> getHomeBills() {
-        List<Bill> bills = new ArrayList<>();
-        bills.add(new MonthlyDebt("CAESB", "Conta de agua", Calendar.getInstance(),
-                new Programming(true, BillType.FIXED, 0), 59.00, false));
-        bills.add(new MonthlyDebt("CEB", "Conta de energia", Calendar.getInstance(),
-                new Programming(true, BillType.FIXED, 0), 84.00, false));
-        bills.add(new MonthlyDebt("NET", "Conta de internet", Calendar.getInstance(),
-                new Programming(true, BillType.FIXED, 0), 457.97, false));
-        bills.add(new MonthlyDebt("Pós", "Mensalidade da pos", Calendar.getInstance(),
-                new Programming(true, BillType.FIXED, 0), 538.65, false));
-        return bills;
-    }
-
-    private List<Bill> getOwnerBills() {
-        List<Bill> bills = new ArrayList<>();
-        bills.add(new CurrentDebt("Camisa do inter", "Camisa de treino do inter", Calendar.getInstance(),149.99));
-        bills.add(new CurrentDebt("Amigo", "Dinheiro pego emprestado com Fulano", 65.00));
-        bills.add(new MonthlyDebt("Academia", "Mensalidade da academia", Calendar.getInstance(),
-                new Programming(true, BillType.FIXED, 0), 89.90, true));
-        return bills;
+        recyclerView.setAdapter(new BookletListAdapter(list, this));
+        if (list.size() >= 1){
+            semContaLayout.setVisibility(View.INVISIBLE);
+        }else {
+            semContaLayout.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

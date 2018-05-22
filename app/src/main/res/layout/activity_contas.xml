@@ -11,163 +11,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <android.support.v7.widget.CardView
-                android:onClick="conta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:elevation="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal">
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/transacao_categoria"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Energia" />
-
-                    <TextView
-                        android:id="@+id/transacao_data"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:text="10/05/2018" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="right|bottom"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="R$ 84,00" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginRight="10dp"
-                        android:gravity="right|bottom"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="À pagar"
-                        android:layout_gravity="right"/>
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:onClick="conta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:elevation="10dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:text="Água" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="13/05/2018" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginRight="10dp"
-                            android:gravity="right|bottom"
-                            android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:text="R$ 59,00" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="10dp"
-                            android:layout_marginRight="10dp"
-                            android:gravity="right|bottom"
-                            android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:text="Paga"
-                            android:layout_gravity="right"/>
-
-                    </LinearLayout>
-
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-
-        </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10">
 
+            <LinearLayout
+                android:id="@+id/contas_sem_conta_adicionada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:background="@drawable/conta"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:text="Nenhuma conta adicionada."
+                    android:textColor="@color/cinzaEscuro"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/contas_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
             <Button
-                android:id="@+id/task_list_add_button"
+                android:id="@+id/contas_add_button"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:textColor="#fff"
@@ -178,7 +58,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/add_conta_background" />
+                android:background="@drawable/add_conta_background"
+                android:onClick="addConta"/>
 
         </RelativeLayout>
 
@@ -234,7 +115,7 @@
                     android:layout_gravity="right"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:text="R$ 143,00" />
+                    tools:text="R$ 143,00" />
 
                 <TextView
                     android:id="@+id/resumo_card_despesa"
@@ -244,7 +125,7 @@
                     android:textSize="20dp"
                     android:textColor="@color/verde"
                     android:textStyle="bold"
-                    android:text="R$ 59,00" />
+                    tools:text="R$ 59,00" />
 
                 <View
                     android:layout_width="match_parent"
@@ -260,7 +141,7 @@
                     android:textStyle="bold"
                     android:textSize="30dp"
                     android:textColor="@color/vermelho"
-                    android:text="R$ 84,00" />
+                    tools:text="R$ 84,00" />
 
             </LinearLayout>
         </LinearLayout>
