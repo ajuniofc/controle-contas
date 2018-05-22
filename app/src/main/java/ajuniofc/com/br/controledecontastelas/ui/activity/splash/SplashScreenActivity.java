@@ -33,9 +33,5 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
         });
 
-        Booklet booklet = new Booklet("Casa", "Contas de casa", Calendar.getInstance(), BookletType.SPARSE, new ArrayList<Bill>());
-        CurrentDebt currentDebt = new CurrentDebt("CEB", "Conta de energia", Calendar.getInstance(), 78.90);
-        booklet.getBills().add(currentDebt);
-        EventBus.getDefault().postSticky(booklet);
     }
 }

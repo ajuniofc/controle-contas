@@ -8,14 +8,4 @@
         android:icon="@drawable/check"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/menu_conta_finalizar"
-        android:title="Finalizar"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/menu_conta_pagar"
-        android:title="Pagar"
-        app:showAsAction="never"/>
-
 </menu>

@@ -18,7 +18,9 @@ import java.util.List;
 import ajuniofc.com.br.controledecontastelas.R;
 import ajuniofc.com.br.controledecontastelas.model.Bill;
 import ajuniofc.com.br.controledecontastelas.model.Booklet;
+import ajuniofc.com.br.controledecontastelas.model.BookletList;
 import ajuniofc.com.br.controledecontastelas.model.BookletType;
+import ajuniofc.com.br.controledecontastelas.model.CurrentDebt;
 import ajuniofc.com.br.controledecontastelas.ui.activity.ContasActivity;
 
 public class CompartilharActivity extends AppCompatActivity {
@@ -54,10 +56,36 @@ public class CompartilharActivity extends AppCompatActivity {
     }
 
     public void createCaderneta(View view) {
-        Booklet booklet = new Booklet("Casa", "Contas de casa", Calendar.getInstance(), BookletType.SPARSE, new ArrayList<Bill>());
-        EventBus.getDefault().postSticky(booklet);
+        EventBus.getDefault().postSticky(bookletList());
         startActivity(new Intent(this, ContasActivity.class));
         finish();
+    }
+
+    private BookletList bookletList(){
+        List<Booklet> booklets = new ArrayList<>();
+        Booklet casa = new Booklet("Casa", "Contas de casa", Calendar.getInstance(), BookletType.SPARSE, new ArrayList<Bill>());
+        booklets.add(casa);
+        booklets.add(pessoal());
+        booklets.add(trabalho());
+        return new BookletList(booklets);
+    }
+
+    private Booklet trabalho() {
+        Booklet booklet = new Booklet("Trabalho","Contas pessoais", Calendar.getInstance(), BookletType.FIXED,new ArrayList<Bill>());
+        booklet.getBills().add(new CurrentDebt("Chacara","Mensalidade da academia", 89.90));
+        booklet.getBills().add(new CurrentDebt("Refrigerante","Mensalidade da academia", 89.90));
+        booklet.getBills().add(new CurrentDebt("Carne","Mensalidade da academia", 89.90));
+        booklet.getBills().add(new CurrentDebt("Cerveja","Mensalidade da academia", 89.90));
+        return booklet;
+    }
+
+    private Booklet pessoal() {
+        Booklet booklet = new Booklet("Pessoal","Contas pessoais", Calendar.getInstance(), BookletType.FIXED,new ArrayList<Bill>());
+        booklet.getBills().add(new CurrentDebt("Smartfit","Mensalidade da academia", 89.90));
+        booklet.getBills().add(new CurrentDebt("Claro","Mensalidade da academia", 89.90));
+        booklet.getBills().add(new CurrentDebt("Deezer","Mensalidade da academia", 89.90));
+        booklet.getBills().add(new CurrentDebt("Pós","Mensalidade da academia", 89.90));
+        return booklet;
     }
 
     private void setAdapter(){

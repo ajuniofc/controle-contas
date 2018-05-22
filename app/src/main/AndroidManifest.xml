@@ -17,11 +17,6 @@
         <activity
             android:name=".ui.activity.splash.SplashScreenActivity"
             android:theme="@style/AppCompat.TelaCheia" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.activity.adicionarbooklet.AdicionarCardenetaActivity"
@@ -35,10 +30,16 @@
             android:theme="@style/AppCompat.NoActionBar" />
         <activity
             android:name=".ui.activity.ContaActivity"
-            android:label="Energia" />
+            android:label="CEB" />
         <activity
             android:name=".ui.activity.onboard.OnBoardActivity"
-            android:theme="@style/AppCompat.TelaCheia" />
+            android:theme="@style/AppCompat.TelaCheia" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.activity.recuperarsenha.RecuperarSenhaActivity"
             android:theme="@style/AppCompat.NoActionBar" />

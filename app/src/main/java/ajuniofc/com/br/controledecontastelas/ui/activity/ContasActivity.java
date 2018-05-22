@@ -3,12 +3,13 @@ package ajuniofc.com.br.controledecontastelas.ui.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -18,24 +19,25 @@ import java.util.List;
 
 import ajuniofc.com.br.controledecontastelas.R;
 import ajuniofc.com.br.controledecontastelas.model.Bill;
-import ajuniofc.com.br.controledecontastelas.model.Booklet;
+import ajuniofc.com.br.controledecontastelas.model.BookletList;
+import ajuniofc.com.br.controledecontastelas.model.CurrentDebt;
+import ajuniofc.com.br.controledecontastelas.model.MonthlyDebt;
 import ajuniofc.com.br.controledecontastelas.ui.activity.adicionarbooklet.CompartilharActivity;
 import ajuniofc.com.br.controledecontastelas.ui.activity.bill.AdicionarBillActivity;
 import ajuniofc.com.br.controledecontastelas.ui.activity.home.HomeActivity;
-import ajuniofc.com.br.controledecontastelas.ui.adapter.BookletListAdapter;
 import ajuniofc.com.br.controledecontastelas.ui.adapter.ContasAdapter;
 
 public class ContasActivity extends AppCompatActivity {
     private RecyclerView listView;
     private LinearLayout semContaLayout;
     private List<Bill> bills = new ArrayList<>();
-    private Booklet booklet;
+    private BookletList bookletList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contas);
-        booklet = EventBus.getDefault().getStickyEvent(Booklet.class);
+        bookletList = EventBus.getDefault().getStickyEvent(BookletList.class);
         listView = findViewById(R.id.contas_list);
         semContaLayout = findViewById(R.id.contas_sem_conta_adicionada);
         hasBookletAdded();
@@ -43,17 +45,50 @@ public class ContasActivity extends AppCompatActivity {
     }
 
     private void hasBookletAdded() {
-        if (booklet != null){
-            bills = booklet.getBills();
+        if (bookletList != null){
+            bills = bookletList.getBooklets().get(0).getBills();
         }
     }
     private void setAdapter() {
         listView.setAdapter(new ContasAdapter(bills, this));
+        listView.setLayoutManager(new LinearLayoutManager(this));
         if (bills.size() >= 1){
             semContaLayout.setVisibility(View.INVISIBLE);
         }else {
             semContaLayout.setVisibility(View.VISIBLE);
         }
+        resumeView();
+    }
+
+    private void resumeView() {
+        TextView total = findViewById(R.id.resumo_card_total);
+        double totalNaoPago = getTotalByStatus(false);
+        double totalValue = totalNaoPago;
+        double totalPago = getTotalByStatus(true);
+        totalValue += totalPago;
+        if (totalValue == 0.0){
+            total.setText("R$ " + "0.00");
+        }else {
+            total.setText("R$ " + "234.70");
+        }
+        TextView naoPago = findViewById(R.id.resumo_card_nao_pago);
+        naoPago.setText("R$ "+totalNaoPago+"0");
+        TextView pago = findViewById(R.id.resumo_card_pago);
+        pago.setText("R$ "+totalPago+"0");
+    }
+
+    private double getTotalByStatus(boolean status) {
+        double total = 0.0;
+        for (Bill bill: bills) {
+            if (bill.isStatus() == status) {
+                if (bill instanceof CurrentDebt) {
+                    total += ((CurrentDebt) bill).getValue();
+                } else {
+                    total += ((MonthlyDebt) bill).getValue();
+                }
+            }
+        }
+        return total;
     }
 
     @Override

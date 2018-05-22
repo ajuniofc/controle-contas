@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import ajuniofc.com.br.controledecontastelas.R;
@@ -17,6 +18,7 @@ import ajuniofc.com.br.controledecontastelas.model.Bill;
 import ajuniofc.com.br.controledecontastelas.model.Booklet;
 import ajuniofc.com.br.controledecontastelas.model.CurrentDebt;
 import ajuniofc.com.br.controledecontastelas.model.MonthlyDebt;
+import ajuniofc.com.br.controledecontastelas.ui.activity.ContaActivity;
 import ajuniofc.com.br.controledecontastelas.ui.activity.ContasActivity;
 import ajuniofc.com.br.controledecontastelas.ui.activity.home.HomeActivity;
 
@@ -36,7 +38,7 @@ public class ContasAdapter extends RecyclerView.Adapter<ContasAdapter.BillViewHo
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.startActivity(new Intent(activity, ContasActivity.class));
+                activity.startActivity(new Intent(activity, ContaActivity.class));
                 activity.finish();
             }
         });
@@ -75,8 +77,9 @@ public class ContasAdapter extends RecyclerView.Adapter<ContasAdapter.BillViewHo
             }else {
                 title.setText(bill1.getName());
             }
-            vencimento.setText(bill1.getExpirationDate().toString());
-            if (bill1.isHasExpiration()){
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            vencimento.setText(format.format(bill1.getExpirationDate().getTime()));
+            if (bill1.isStatus()){
                 status.setTextColor(ContextCompat.getColor(activity, R.color.verde));
                 status.setText("Paga");
             }else {
@@ -84,20 +87,20 @@ public class ContasAdapter extends RecyclerView.Adapter<ContasAdapter.BillViewHo
                 status.setText("Não paga");
             }
             if (bill1 instanceof CurrentDebt){
-                bindMontly(bill1);
-            }else {
                 bindCurrent(bill1);
+            }else {
+                bindMontly(bill1);
             }
         }
 
         private void bindCurrent(Bill bill1) {
             CurrentDebt currentDebt = (CurrentDebt) bill1;
-            valor.setText(currentDebt.getValue().toString());
+            valor.setText("R$ "+currentDebt.getValue().toString());
         }
 
         private void bindMontly(Bill bill1) {
             MonthlyDebt monthlyDebt = (MonthlyDebt) bill1;
-            valor.setText(monthlyDebt.getValue().toString());
+            valor.setText("R$ "+monthlyDebt.getValue().toString());
         }
     }
 }

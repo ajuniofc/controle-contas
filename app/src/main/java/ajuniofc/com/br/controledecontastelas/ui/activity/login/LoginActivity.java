@@ -17,6 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private EditText edtUser, edtPassword;
     private LinearLayout erroUserLayout, erroPasswordLayout;
+    private boolean isValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,13 @@ public class LoginActivity extends AppCompatActivity {
     private void goToSplashActicity() {
         String stringUser = edtUser.getText().toString();
         String stringPassword = edtPassword.getText().toString();
-        if (isValid(stringUser, stringPassword)){
+        if (!isValid){
+            erroPasswordLayout.setVisibility(View.VISIBLE);
+            erroUserLayout.setVisibility(View.VISIBLE);
+            isValid = true;
+        }else {
+            erroPasswordLayout.setVisibility(View.INVISIBLE);
+            erroUserLayout.setVisibility(View.INVISIBLE);
             startActivity(new Intent(this, SplashScreenActivity.class));
             finish();
         }

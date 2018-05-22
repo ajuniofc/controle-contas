@@ -33,7 +33,7 @@
                     android:id="@+id/contas_list_item_vencimento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="12dp"
                     tool:text="13/05/2018" />
 
             </LinearLayout>
@@ -49,8 +49,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginRight="10dp"
-                    android:gravity="right|bottom"
-                    android:textSize="20dp"
+                    android:layout_marginTop="14dp"
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:textSize="16dp"
                     android:textStyle="bold"
                     tool:text="R$ 59,00" />
 
@@ -61,7 +63,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginRight="10dp"
                     android:gravity="right|bottom"
-                    android:textSize="20dp"
+                    android:textSize="14dp"
                     android:textStyle="bold"
                     tool:text="Paga"
                     android:layout_gravity="right"/>

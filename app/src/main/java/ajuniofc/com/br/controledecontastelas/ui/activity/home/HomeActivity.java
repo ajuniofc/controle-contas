@@ -21,6 +21,7 @@ import ajuniofc.com.br.controledecontastelas.R;
 import ajuniofc.com.br.controledecontastelas.model.Bill;
 import ajuniofc.com.br.controledecontastelas.model.BillType;
 import ajuniofc.com.br.controledecontastelas.model.Booklet;
+import ajuniofc.com.br.controledecontastelas.model.BookletList;
 import ajuniofc.com.br.controledecontastelas.model.CurrentDebt;
 import ajuniofc.com.br.controledecontastelas.model.MonthlyDebt;
 import ajuniofc.com.br.controledecontastelas.model.BookletType;
@@ -53,9 +54,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void hasBookletAdded() {
-        Booklet booklet = EventBus.getDefault().getStickyEvent(Booklet.class);
-        if (booklet != null){
-            list.add(booklet);
+        BookletList bookletList = EventBus.getDefault().getStickyEvent(BookletList.class);
+        if (bookletList != null){
+            list = bookletList.getBooklets();
         }
     }
 
